@@ -2,15 +2,17 @@ package br.com.tokiomarine.seguradora.avaliacao.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
 import br.com.tokiomarine.seguradora.avaliacao.repository.EstudanteRepository;
 
-@Component
+@Service
+@Transactional
 public class EstudanteServiceImpl implements EstudanteService {
 
 	private final EstudanteRepository repository;
@@ -48,6 +50,11 @@ public class EstudanteServiceImpl implements EstudanteService {
 		return repository
 				.findById(id)
 				.orElseThrow(() -> new NotFoundEstudanteError(id));
+	}
+
+	@Override
+	public void excluirEstudante(long id) {
+		repository.deleteById(id);
 	}
 
 }

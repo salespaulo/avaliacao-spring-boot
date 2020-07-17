@@ -39,7 +39,7 @@ public class ApplicationTests {
 	private Estudante estudanteTest;
 
 	@Before
-	public void setUp() {
+	public void beforeAll() {
 		ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
 		validator = factory.getValidator();
 
