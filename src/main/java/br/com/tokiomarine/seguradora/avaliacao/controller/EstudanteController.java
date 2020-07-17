@@ -52,7 +52,7 @@ public class EstudanteController {
 	@PostMapping("atualizar/{id}")
 	public String atualizarEstudante(@PathVariable("id") long id, @Valid Estudante estudante, BindingResult result, Model model) {
 		if (result.hasErrors()) {
-			// estudante.setId(id);
+			estudante.setId(id);
 			return "atualizar-estudante";
 		}
 

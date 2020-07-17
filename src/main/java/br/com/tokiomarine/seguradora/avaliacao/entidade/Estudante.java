@@ -16,7 +16,7 @@ public class Estudante {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(unique = true, nullable = false)
-	private Integer id;
+	private Long id;
 
 	@NotNull(message = "Nome é obrigatório!")
 	@Column(nullable = false, length = 100)
@@ -30,11 +30,11 @@ public class Estudante {
 	@Column(nullable = false, length = 20)
 	private String telefone;
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	protected void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
