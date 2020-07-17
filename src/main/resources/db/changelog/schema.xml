@@ -1,0 +1,31 @@
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+	<changeSet id="1-create-estudante" author="paulosales">
+		<createTable tableName="estudante">
+			<column name="id" type="BIGINT" autoIncrement="true">
+				<constraints primaryKey="true" nullable="false" />
+			</column>
+			<column name="nome" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="email" type="VARCHAR(200)">
+				<constraints nullable="false" />
+			</column>
+			<column name="telefone" type="VARCHAR(20)">
+				<constraints nullable="true" />
+			</column>
+			<column name="matricula" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="curso" type="VARCHAR(200)">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog> 

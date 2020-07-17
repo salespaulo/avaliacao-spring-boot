@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>br.com.tokiomarine.seguradora.test-sva</groupId>
 	<artifactId>teste-java-sva</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.1-salespaulo</version>
 	<name>teste-java-sva</name>
 	<description>teste-java-sva</description>
 
@@ -42,6 +42,10 @@
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.liquibase</groupId>
+			<artifactId>liquibase-core</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
