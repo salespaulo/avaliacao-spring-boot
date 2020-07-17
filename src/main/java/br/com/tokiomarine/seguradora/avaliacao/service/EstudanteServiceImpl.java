@@ -11,7 +11,7 @@ import br.com.tokiomarine.seguradora.avaliacao.entidade.Estudante;
 import br.com.tokiomarine.seguradora.avaliacao.repository.EstudanteRepository;
 
 @Component
-public class EstudanteServiceImpl implements EstudandeService {
+public class EstudanteServiceImpl implements EstudanteService {
 
 	private final EstudanteRepository repository;
 	
@@ -22,7 +22,7 @@ public class EstudanteServiceImpl implements EstudandeService {
 
 	@Override
 	public void cadastrarEstudante(@Valid Estudante estudante) {
-		repository.save(estudante);
+		repository.saveAndFlush(estudante);
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class EstudanteServiceImpl implements EstudandeService {
 					byId.setTelefone(estudante.getTelefone());
 					return byId;
 				})
-				.map(repository::save);
+				.map(repository::saveAndFlush);
 	}
 
 	@Override
