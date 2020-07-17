@@ -1,5 +1,7 @@
 package br.com.tokiomarine.seguradora.avaliacao.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
 
@@ -72,7 +74,15 @@ public class EstudanteController {
 	@GetMapping("apagar/{id}")
 	public String apagarEstudante(@PathVariable("id") @Size(min = 0) Long id, Model model) {
 		service.excluirEstudante(id);
-		model.addAttribute("estudantes", service.buscarEstudantes());
+
+		final List<Estudante> estudantes = service.buscarEstudantes();
+		
+		if (estudantes.isEmpty()) {
+			model.addAttribute("estudantes", null);
+		} else {
+			model.addAttribute("estudantes", estudantes);
+		}
+
 		return "index";
 	}
 }

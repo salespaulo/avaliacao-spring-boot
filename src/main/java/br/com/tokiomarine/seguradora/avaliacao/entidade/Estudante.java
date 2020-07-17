@@ -27,8 +27,16 @@ public class Estudante {
 	@Column(nullable = false, length = 200)
 	private String email;
 
+	//@Pattern(regexp = "^\\([1-9]{2}\\) (?:[2-8]|9[1-9])[0-9]{3}\\-[0-9]{4}$", message = "Telefone é inválido!")
 	@Column(nullable = false, length = 20)
 	private String telefone;
+
+	@NotNull(message = "Matricula é obrigatória!")
+	@Column(nullable = false, length = 100)
+	private String matricula;
+
+	@Column(nullable = false, length = 200)
+	private String curso;
 
 	public Long getId() {
 		return id;
@@ -62,6 +70,30 @@ public class Estudante {
 		this.telefone = telefone;
 	}
 	
+	public String getMatricula() {
+		return matricula;
+	}
 	
+	public void setMatricula(String matricula) {
+		this.matricula = matricula;
+	}
+	
+	public String getCurso() {
+		return curso;
+	}
+
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (!(obj instanceof Estudante)) {
+			return false;
+		}
+
+		final Estudante other = (Estudante) obj;
+		return this.getId().equals(other.getId());
+	}
 
 }

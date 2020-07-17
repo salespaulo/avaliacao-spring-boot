@@ -35,6 +35,8 @@ public class EstudanteServiceImpl implements EstudanteService {
 					byId.setNome(estudante.getNome());
 					byId.setEmail(estudante.getEmail());
 					byId.setTelefone(estudante.getTelefone());
+					byId.setMatricula(estudante.getMatricula());
+					byId.setCurso(estudante.getCurso());
 					return byId;
 				})
 				.map(repository::saveAndFlush);
